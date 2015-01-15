@@ -16,12 +16,6 @@ function prompt_peepcode_precmd {
     git-info
   fi
 
-  # Get Ruby information.
-  if (( $+functions[ruby-info] )); then
-    ruby-info
-  fi
-}
-
 function prompt_peepcode_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
