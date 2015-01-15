@@ -11,3 +11,34 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Display MOTD
+if [[ -e $HOME/.motd ]]; then $HOME/.motd; fi
+
+##########
+# Aliases
+##########
+alias smi="sudo make install"
+alias nano="nano -c"
+alias gitc="git commit -anm"
+alias ssh-site="ssh brydav13@potus.dreamhost.com" # Homepage SSH
+alias rsync-bak="rsync -avz --del" # Easy rsync backups
+alias szsh="source ~/.zshrc" # Reload zsh config
+alias ezsh="vim ~/.zshrc" # Edit zsh config
+
+###################
+# Custom Functions
+###################
+function backup-wiki() {
+    rsync -avz --del $HOME/dev/wiki /Volumes/bryce-usb/
+}
+
+function mdtopdf() {
+    pandoc --from markdown_github -t latex $1 --output $2
+}
+
+##########
+# Exports
+##########
+export CUTE_BATTERY_INDICATOR="true"
+export SHELL=`which zsh`
